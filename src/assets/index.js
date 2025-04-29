@@ -29,6 +29,12 @@ import tesla from "./company/tesla.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import papalazius from "./company/papalazius.png";
+import suncaper from "./company/suncaper.png";
+
+import whatsappclone from "./whatsappclone.png";
+import forkandfriends from "./forkandfriends.png";
+import strabismuscare from "./strabismuscare.png";
 
 export {
   logo,
@@ -59,4 +65,9 @@ export {
   carrent,
   jobit,
   tripguide,
+  papalazius,
+  suncaper,
+  whatsappclone,
+  forkandfriends,
+  strabismuscare,
 };

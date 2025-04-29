@@ -1,5 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   About,
   Contact,
@@ -8,38 +7,57 @@ import {
   Hero,
   Navbar,
   Tech,
-  Works,
-  StarsCanvas
+  Projects,
+  StarsCanvas,
+  Footer,
 } from "./components";
-
+import AboutMe from "./components/AboutMe";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
-    <>
-      <BrowserRouter
-      future={{
-        v7_startTransition: true,
-        v7_relativeSplatPath: true,
-      }}
-      >
-        <div className="relative z-0 bg-primary">
-          <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-            <Navbar />
-            <Hero />
-          </div>
-          <About />
-          <Experience />
-          <Tech />
-          <Works />
-          <Feedbacks />
+    <BrowserRouter>
+     <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
+      <div className="relative z-0 bg-primary">
+        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+          <Navbar />
         </div>
-        <div className="relative z-0">
-          <Contact />
-          <StarsCanvas />
+
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <About />
+                <Experience />
+                <Tech />
+                <Projects />
+                <Feedbacks />
+              </>
+            }
+          />
+          <Route path="/about-me" element={<AboutMe />} />
+          <Route
+            path="/contact"
+            element={
+              <>
+                <Contact />
+                <StarsCanvas />
+              </>
+            }
+          />
+        </Routes>
+
+        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+          <Footer />
         </div>
-      </BrowserRouter>
-    </>
+      </div>
+    </BrowserRouter>
   );
 };
 
 export default App;
+
+
+
