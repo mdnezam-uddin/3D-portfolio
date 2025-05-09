@@ -131,15 +131,15 @@ const Footer = () => {
               <FaHandshake className="text-lg text-sky-500" />
               Open to projects & partnerships 
             </p>
-            <Link
-              to="/contact"
+            <motion.a
+              href="#contact"
               className="inline-flex items-center gap-2 px-4 py-2 mt-4 bg-sky-100 text-sky-600 border border-sky-300 rounded-lg hover:bg-sky-200 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <FiSend className="text-lg" />
               Drop Me a Line
-            </Link>
+            </motion.a>
           </motion.div>
         </div>
 
