@@ -169,4 +169,4 @@ const AboutMe = () => {
   );
 };
 
-export default SectionWrapper(AboutMe, "");
+export default SectionWrapper(AboutMe, "about-me");

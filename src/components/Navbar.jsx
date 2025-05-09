@@ -2,7 +2,6 @@ import { useState } from "react";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 import { styles } from "../style";
-import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { FaHome, FaUser, FaCode, FaEnvelope, FaBriefcase } from "react-icons/fa";
@@ -20,15 +19,6 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
 
-  const location = useLocation();
-
-  const isSpecialPage =
-    location.pathname === "/about-me" || location.pathname === "/contact";
-
-  const filteredNavLinks = isSpecialPage
-    ? navLinks.filter((item) => item.title === "About" || item.title === "Contact")
-    : navLinks;
-
   return (
     <motion.div
       className="w-full py-4 from-[#0b1320] to-[#162032] text-blue-50 border-b border-sky-900/40 fixed top-0 z-50 bg-primary"
@@ -45,8 +35,8 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <Link
-              to="/"
+            <a
+              href="#home"
               className="flex items-center gap-2"
               onClick={() => {
                 setActive("");
@@ -61,7 +51,7 @@ const Navbar = () => {
               >
                 Md Nezam Uddin
               </motion.p>
-            </Link>
+            </a>
           </motion.div>
 
           {/* Desktop Menu */}
@@ -72,7 +62,7 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
-              {filteredNavLinks.map((item, index) => (
+              {navLinks.map((item, index) => (
                 <motion.li
                   key={item.id}
                   className="rounded-lg overflow-hidden"
@@ -88,33 +78,14 @@ const Navbar = () => {
                     whileTap={{ scale: 0.95 }}
                     className="w-full h-full"
                   >
-                    {item.title === "About" ? (
-                      <Link
-                        to="/about-me"
-                        className="flex items-center w-full h-full px-4 py-2 text-blue-200/80 hover:text-sky-400 transition-colors"
-                        onClick={() => setActive(item.title)}
-                      >
-                        {iconMap[item.title]}
-                        {item.title}
-                      </Link>
-                    ) : item.title === "Contact" ? (
-                      <Link
-                        to="/contact"
-                        className="flex items-center w-full h-full px-4 py-2 text-blue-200/80 hover:text-sky-400 transition-colors"
-                        onClick={() => setActive(item.title)}
-                      >
-                        {iconMap[item.title]}
-                        {item.title}
-                      </Link>
-                    ) : (
-                      <a
-                        href={`#${item.id}`}
-                        className="flex items-center w-full h-full px-4 py-2 text-blue-200/80 hover:text-sky-400 transition-colors"
-                      >
-                        {iconMap[item.title]}
-                        {item.title}
-                      </a>
-                    )}
+                    <a
+                      href={`#${item.id}`}
+                      className="flex items-center w-full h-full px-4 py-2 text-blue-200/80 hover:text-sky-400 transition-colors"
+                      onClick={() => setActive(item.title)}
+                    >
+                      {iconMap[item.title]}
+                      {item.title}
+                    </a>
                   </motion.div>
                 </motion.li>
               ))}
@@ -140,7 +111,7 @@ const Navbar = () => {
                   className="p-6 black-gradient absolute top-20 right-0 mx-4 min-w-[160px] z-10 rounded-xl backdrop-blur-sm"
                 >
                   <ul className="list-none flex justify-end items-start flex-col gap-4">
-                    {filteredNavLinks.map((link) => (
+                    {navLinks.map((link) => (
                       <motion.li
                         key={link.id}
                         className={`${
@@ -155,40 +126,17 @@ const Navbar = () => {
                         whileHover={{ x: 5, scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        {link.title === "About" ? (
-                          <Link
-                            to="/about-me"
-                            className="flex items-center"
-                            onClick={() => {
-                              setActive(link.title);
-                              setToggle(false);
-                            }}
-                          >
-                            {iconMap[link.title]}
-                            {link.title}
-                          </Link>
-                        ) : link.title === "Contact" ? (
-                          <Link
-                            to="/contact"
-                            className="flex items-center"
-                            onClick={() => {
-                              setActive(link.title);
-                              setToggle(false);
-                            }}
-                          >
-                            {iconMap[link.title]}
-                            {link.title}
-                          </Link>
-                        ) : (
-                          <a
-                            href={`#${link.id}`}
-                            className="flex items-center"
-                            onClick={() => setToggle(false)}
-                          >
-                            {iconMap[link.title]}
-                            {link.title}
-                          </a>
-                        )}
+                        <a
+                          href={`#${link.id}`}
+                          className="flex items-center"
+                          onClick={() => {
+                            setActive(link.title);
+                            setToggle(false);
+                          }}
+                        >
+                          {iconMap[link.title]}
+                          {link.title}
+                        </a>
                       </motion.li>
                     ))}
                   </ul>
