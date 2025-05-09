@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import {  Routes, Route, BrowserRouter } from "react-router-dom";
 import {
   About,
   Contact,
@@ -16,7 +16,7 @@ import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
-    <HashRouter>
+    <BrowserRouter>
      <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
       <div className="relative z-0 bg-primary">
         <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
@@ -53,7 +53,7 @@ const App = () => {
           <Footer />
         </div>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 
