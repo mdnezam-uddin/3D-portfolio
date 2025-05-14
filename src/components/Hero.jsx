@@ -21,7 +21,7 @@ const textVariant = {
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen mx-auto overflow-hidden">
+    <section className="relative w-full h-screen mx-auto overflow-hidden bg-[url('@/assets/hero.png')] bg-cover bg-center bg-no-repeat">
       {/* Animated Container */}
       <motion.div
         initial="hidden"
