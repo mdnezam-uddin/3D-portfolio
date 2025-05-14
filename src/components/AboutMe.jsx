@@ -104,7 +104,7 @@ const AboutMe = () => {
         >
           <div className="relative w-56 h-56 md:w-64 md:h-64 shadow-xl rounded-2xl overflow-hidden">
             <motion.img
-              src="/src/assets/profile.png"
+              src="/src/assets/nez.jpg"
               alt="Nezam Uddin"
               className="w-full h-full object-cover rounded-2xl"
               style={{ filter: "contrast(1.1) brightness(1.1)" }}
