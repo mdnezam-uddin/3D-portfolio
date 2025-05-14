@@ -1,4 +1,5 @@
 import logo from "./nezam.png";
+import profile from "./profile.png";
 import backend from "./backend.png";
 import creator from "./creator.png";
 import mobile from "./mobile.png";
@@ -31,6 +32,7 @@ import strabismuscare from "./strabismuscare.png";
 
 export {
   logo,
+  profile,
   backend,
   creator,
   mobile,
